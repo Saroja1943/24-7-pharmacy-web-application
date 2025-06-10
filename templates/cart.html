@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cart</title></head>
+<body>
+    <h2>Your Cart</h2>
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/checkout">Proceed to Checkout</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>

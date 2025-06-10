@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Friendly</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">PHARMACY FRIENDLY</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/prescription">Add Prescription</a>
+            <a href="/checkout">Checkout</a>
+            <a href="/cart">Cart ({{ cart_items|length if cart_items else 0 }})</a>
+            <a href="/admin_dashboard">Admin Panel</a>
+            {% if current_user.is_authenticated %}
+                <a href="/logout">Logout ({{ current_user.username }})</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        <p>WELCOME TO SHOP</p>
+        <h2>Check our <span>Products</span></h2>
+
+        <div class="section-title">Regular Medicine Flash Sale</div>
+        <div class="products">
+            <div class="product">
+                <img src="/static/paracetemol.jpg" alt="Paracetemol">
+                <h4>Paracetamol</h4>
+                <p>The tablet is used in fever...</p>
+                <div class="price">Price: ₹100</div>
+                <a href="/add_to_cart/Paracetamol"><button class="add-to-cart">Add To Cart</button></a>
+            </div>
+
+            <div class="product">
+                <img src="/static/nicip.jpg" alt="Nicip Plus">
+                <h4>Nicip Plus</h4>
+                <p>This medicine is for body pain...</p>
+                <div class="price">Price: ₹150</div>
+                <a href="/add_to_cart/Nicip Plus"><button class="add-to-cart">Add To Cart</button></a>
+            </div>
+
+            <div class="product">
+                <img src="/static/critizine.jpg" alt="Citrizine">
+                <h4>Citrizine</h4>
+                <p>This is a regular medicine for cough and cold...</p>
+                <div class="price">Price: ₹100</div>
+                <a href="/add_to_cart/Citrizine"><button class="add-to-cart">Add To Cart</button></a>
+            </div>
+
+            <div class="product">
+                <img src="/static/Becosules.jpg" alt="Becosule">
+                <h4>Becosule</h4>
+                <p>This tablet is for vitamin B...</p>
+                <div class="price">Price: ₹70</div>
+                <a href="/add_to_cart/Becosule"><button class="add-to-cart">Add To Cart</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
